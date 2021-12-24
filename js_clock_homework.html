@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&display=swap" rel="stylesheet">
+  <title>clock</title>
+</head>
+
+
+<body>
+  
+  <div class="container">
+    <div id="clock">
+      <div class="hour">
+        <div class="left text">
+          <span id="hourleft" class="neon">1</span>
+        </div>
+        <div class="right text">
+          <span id="hourright" class="neon">2</span>
+        </div>
+      </div>
+      <div class="text neon">:</div>
+      <div class="minute">
+        <div class="left text">
+          <span id="minuteleft" class="neon">1</span>
+        </div>
+        
+        <div class="right text">
+          <span id="minuteright" class="neon">2</span>
+        </div>
+      </div>
+      <div class="text neon">:</div>
+      <div class="second">
+        <div class="left text">
+          <span id="secondleft" class="neon">1</span>
+        </div>
+        <div class="right text">
+          <span id="secondright" class="neon">2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    const hourleft = document.getElementById('hourleft')
+    const hourright = document.getElementById('hourright')
+    const minuteleft = document.getElementById('minuteleft')
+    const minuteright = document.getElementById('minuteright')
+    const secondleft = document.getElementById('secondleft')
+    const secondright = document.getElementById('secondright')
+    const starContent = document.getElementById('starContent')
+    // star 控制 > star::before, keyframe rotation and translateX
+    const starPos = {
+      top:'',
+      left:''
+    }
+    let count = 0
+    function updateTime(){
+      const now = new Date()
+      let seconds = now.getSeconds()
+      let minutes = now.getMinutes()
+      let hours = now.getHours()
+      seconds = JSON.stringify(seconds)
+      minutes = JSON.stringify(minutes)
+      hours = JSON.stringify(hours)
+      secondsright = seconds.substr(1,1)
+      secondsleft = seconds.substr(0,1)
+      if (seconds<10){
+        secondsright = seconds
+        secondsleft = 0
+      }else{
+        secondsright = seconds.substr(1, 1)
+        secondsleft = seconds.substr(0, 1)
+      }
+      if (minutes < 10) {
+        minutesright = minutes
+        minutesleft = 0
+      } else {
+        minutesright = minutes.substr(1, 1)
+        minutesleft = minutes.substr(0, 1)
+      }
+      if (hours < 10) {
+        hoursright = hours
+        hoursleft = 0
+      } else {
+        hoursright = hours.substr(1, 1)
+        hoursleft = hours.substr(0, 1)
+      }
+      secondright.innerText= secondsright
+      secondleft.innerText= secondsleft
+      minuteleft.innerText= minutesleft
+      minuteright.innerText= minutesright
+      hourleft.innerText= hoursleft
+      hourright.innerText= hoursright
+    }
+    updateTime()
+    setInterval(updateTime, 1000)
+  </script>
+</body>
+
+</html>

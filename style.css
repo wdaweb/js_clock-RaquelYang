@@ -1,0 +1,147 @@
+html,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Bai Jamjuree", sans-serif;
+}
+html {
+  background: url("./space-g145fa3e8e_1920.jpg") no-repeat center/cover;
+  animation: animateBg 50s linear infinite;
+  overflow: hidden;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+}
+.container {
+  width: 800px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#clock {
+  width: 600px;
+  height: 180px;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 1;
+}
+
+.hour,
+.minute,
+.second {
+  width: 33%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.hour::after {
+  content: "hour";
+  display: block;
+  font-size: 2rem;
+  color: white;
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+.minute::after {
+  content: "minute";
+  display: block;
+  font-size: 2rem;
+  color: white;
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+.second::after {
+  content: "second";
+  display: block;
+  font-size: 2rem;
+  color: white;
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+.right {
+  width: 45%;
+}
+
+.text {
+  font-size: 5rem;
+  text-align: center;
+  position: relative;
+  font-weight: 600;
+  color: white;
+}
+.left {
+  width: 45%;
+  text-align: end;
+}
+
+.text::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+}
+
+span {
+  display: inline-block;
+}
+.neon {
+  animation: neon 1.5s ease-in-out infinite alternate;
+}
+@keyframes neon {
+  from {
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff, 0 0 10px #467446,
+      0 0 30px #467446, 0 0 50px #467446, 0 0 80px #467446;
+  }
+  to {
+    text-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff, 0 0 10px #467446,
+      0 0 15px #467446, 0 0 20px #467446;
+  }
+}
+@keyframes neon1 {
+  from {
+    box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff, 0 0 10px #467446,
+      0 0 30px #467446, 0 0 50px #467446, 0 0 80px #467446;
+    box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 10px #467446,
+      0 0 30px #467446 inset;
+  }
+  to {
+    box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 5px #fff, 0 0 10px #467446,
+      0 0 15px #467446, 0 0 20px #467446;
+    box-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 10px #467446,
+      0 0 30px #467446 inset;
+  }
+}
+@keyframes animateBg {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+@keyframes star {
+  0% {
+    transform: rotate(345deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(345deg) translateX(-500px);
+    opacity: 0;
+  }
+}
